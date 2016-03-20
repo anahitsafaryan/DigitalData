@@ -1,0 +1,25 @@
+# Teacher
+
+students 
+*id integer 
+-name varchar(50) 
+-surname varchar(50) 
+
+attendance 
+-student => students.id
+-date date
+-present tinyint(1)
+
+homework 
+-student => students.id
+-date date
+-score integer
+
+class_tests 
+-student => students.id
+-date date
+-score integer
+
+groups 
+*id integer
+-people => students.id

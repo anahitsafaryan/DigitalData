@@ -1,32 +1,6 @@
-create database Journal;
-use Journal;
+# Journal
 
-create table authours (
-id integer primary key auto_increment,
-name varchar(50) not null, 
-surname varchar (50) not null);
-
-create table reviewers (
-id integer primary key auto_increment,
-name varchar (50) not null,
-surname varchar (50) not null);
-
-create table issues (
-id integer primary key auto_increment,
-date date);
-
-create table articles (
-id integer primary key auto_increment,
-name varchar (150) not null,
-author integer references authors(id),
-reviewer integer references reviewers(id),
-accepted tinyint(1),
-issue integer references issues(id));
-
-
-Journal
-
-authours 
+authors 
 *id integer auto_increment
 -name varchar(50) 
 -surname varchar (50) 

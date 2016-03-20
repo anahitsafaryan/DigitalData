@@ -1,0 +1,18 @@
+# database Library;
+
+
+book_list 
+*id integer
+-name varchar(150) 
+
+
+users 
+*id integer
+-name varchar (50) 
+-surname varchar(50) 
+-birthdate? date
+
+books_lent 
+-book => book_list.id
+-people => users.id
+-date? date
