@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story>
+    <people>
+        <person xml:id="p1">
+            <identity>student</identity>
+        </person>
+
+        <person xml:id="p2">
+            <identity> teacher</identity>
+        </person>
+    </people>
+
+
+
+    <work>
+
+
+        <image name="TBA001.jpeg"
+            url='https://github.com/DHBern/DD2016/blob/master/homework/w05-21-March/TBA001.jpeg'>
+            <author identity="p1"/>
+            <hi rend="dark black"/>
+            <lined/>
+            <marginal position="left"/>
+
+
+            <line n="1">
+                <marginal>
+                    <date><dam><supplied>26</supplied></dam>/8/08</date>
+                </marginal>
+                <heading>
+                    <big.size>
+                        <underlined>There and Back Again</underlined>
+                    </big.size>
+                </heading>
+            </line>
+
+            <line n="2"/> 
+            <line n="3"/>
+
+            <paragraph n="1">
+                <line n="4"><marginal><hi rend="red"><add resp="p2">well
+                    done!</add></hi></marginal>I can't bel<cor resp="p2"><hi rend="red"
+                                ><denied>ei</denied><insisted>ie</insisted></hi></cor>ve it. Carl
+                    has not written to</line>
+                <line n="5"><marginal><add resp="p2"><hi rend="red">8,5/</hi></add></marginal>me or
+                    sent me a postcard once since he's </line>
+                <line n="6"><marginal><add resp="p2"><hi rend="red">10</hi></add></marginal>been
+                    away i<cor resp="p1"><denied>s</denied><insisted>n</insisted></cor> Egypt. It
+                    would be easier</line>
+                <line n="7">if our phone was working. It's been </line>
+                <line n="8">broken for ages! Dad can't fix it at the</line>
+                <line n="9">moment, and we can't afford to buy a new</line>
+                <line n="10">one. I would write to him, but he didn't</line>
+                <line n="11">tell me the address of the villa he was </line>
+                <line n="12">staying in. If only I had a mobile, I could</line>
+                <line n="13">phone his mobile number. Eureka!!! I</line>
+                <line n="14">could use next door's phone, oh, actually,</line>
+                <line n="15">Mr and Mrs Crooel won't let me use it (they're</line>
+                <line n="16">my next door neighbours). I know. I'll use</line>
+                <line n="17">the phone box!!! <supplied>!!!</supplied>(I think I've got some</line>
+                <line n="18"> change).</line>
+            </paragraph>
+
+            <paragraph n="2">
+                <line n="19">Goodness me, this phone box stinks.</line>
+                <line n="20">EEAW, I don't even want to know</line>
+                <line n="21">what that is. Anyway, I hope his phone is</line>
+                <line n="22">switched on. W<cor resp="p1"
+                        ><denied>a</denied><insisted>h</insisted></cor>at's it again??? Oh,
+                    yeah,</line>
+                <line n="23">1312632. Arrgh!! What's happening!!! </line>
+                <line n="24"><cor><denied>and</denied><insisted>Wh</insisted></cor>o's shaking the
+                    phone box!! Who tunred </line>
+                <line n="25"><marginal><gap/><above>ok</above>
+                        <below><add xml:id="add.1">out</add></below></marginal><cor resp="p1"
+                            ><denied>out</denied><insisted add="add.1"/></cor> the lights!!!</line>
+            </paragraph>
+
+            <paragraph n="3">
+                <line n="26">WOW!!! Where am I? Why is everything</line>
+                <line n="27">so smokey? Everything is silver except the </line>
+                <line n="28">air around me, it's black, and I'm</line>
+                <line n="29">standing in a silver pod, with some</line>
+                <line n="30">thing that looks like a phone. When</line>
+                <line n="31">you look up there are millions of metal</line>
+                <line n="32">poles, and some of them have w<cor resp="p1"
+                            ><denied>a</denied><insisted>h</insisted></cor>at look</line>
+                <line n="33">like funny shaped cars whizzing along</line>
+                <line n="34">attached to the metal poles at the top.</line>
+            </paragraph>
+
+            <page number="1" position="mid"/>
+
+        </image>
+
+
+
+
+
+        <image name="TBA001b.jpeg"
+            url='https://github.com/DHBern/DD2016/blob/master/homework/w05-21-March/TBA001.jpeg'/> 
+
+
+        <image name="TBA002.jpeg"
+            url='https://github.com/DHBern/DD2016/blob/master/homework/w05-21-March/TBA002.jpeg'>
+            <author identity='p1'/>
+            <hi rend='dark black'/>
+            <marginal position='left'/>
+
+            <paragraph n="1">
+                <line n="1">There seem<cor><denied>e</denied><insisted>s</insisted></cor> to be
+                    no-one around <add_above resp="p1">the phone box</add_above>.</line>
+                <line n="2">Yuk! <cor resp="p1"><denied>s</denied><insisted>S</insisted></cor>omeone
+                    has just walked past. All their</line>
+                <line n="3">skin is black and crusty and in the side of</line>
+                <line n="4">their neck are gitt like things. The whites </line>
+                <line n="5">of his or her eyes are grey and he, or she has </line>
+                <line n="6">no hair. I also notice that he, or she has a </line>
+                <line n="7">clear gas mask. It's from all the smoke.</line>
+            </paragraph>
+
+            <paragraph n="2"><line n="8"><space/>Goodness me! I just stepped</line>
+                <line n="9">outside the phone box and I couldn't</line>
+                <line n="10"><marginal><add resp="p2"><hi rend="red"
+                                    ><above>"breath"=noun</above><below>"to
+                                breathe"=verb</below></hi></add></marginal>breath<add resp="p2"><hi
+                            rend="red">e</hi></add>. It was like a king cobra was </line>
+                <line n="11">wrapped around my neck and if I </line>
+                <line n="12">was to get a little bit of air in it was </line>
+                <line n="13">horrible, like when you stop at red man</line>
+                <line n="14">beside the traffic lights and a bus </line>
+                <line n="15">is stopped beside you and you're </line>
+                <line n="16">getting breaths of carbon dioxide. </line>
+                <line n="17">But this was 100 <g ref="x">times</g> worse. Now I know </line>
+                <line n="18">what all the black air is: all the </line>
+                <line n="19">pollution. But that doesn't help me </line>
+                <line n="20">figure out where I am</line>.</paragraph>
+
+            <paragraph n="3">
+                <line n="21">What's that? It's a big</line>
+                <line n="22"><marginal><add resp="p1" xml:id="add.3">
+                            <add xml:id="add.2">on</add>
+                            <rimmed><denied>at</denied><insisted add="add.2"/>the
+                            wall</rimmed></add></marginal>poster <add_marginal resp="p1" add="add.3"
+                    />, saying: Monday 26th May</line>
+                <line n="23">1312632. I've gone into the future!!! </line>
+                <line n="24">Wait, I recognise the date. It's Carl's </line>
+                <line n="25">number! When I typed it in on the </line>
+                <line n="26">key pad in the phone box, that must </line>
+                <line n="27">have taken me into the future: I must </line>
+                <line n="28">get back and warn everyone!</line>
+                <line n="29">I'll type in 2008. Nothing was happening. </line>
+                <line n="30">Then, Hello, dearie, an old woman answered. </line>
+                <line n="31">Who is it? I hung up. Uh, oh. How do I </line>
+                <line n="32">get back then?</line>
+            </paragraph>
+            <page number="2" position="mid"/>
+
+        </image>
+
+
+
+
+
+
+
+        <image name="TBA003.jpeg"
+            url='https://github.com/DHBern/DD2016/blob/master/homework/w05-21-March/TBA003.jpeg'>
+            <author identity='p1'/>
+            <hi rend='dark black'/>
+            <lined/>
+            <marginal position='left'/>
+
+            
+                <line n="1"> </line>
+
+                <paragraph n="1">
+                    <line n="2">I've been thinking for ages about</line>
+                    <line n="3">what to do. There only seems to be one</line>
+                    <line n="4">good option, fix and stop all the pollution.</line>
+                    <line n="5">This sort of seems like a dream, but a fun</line>
+                    <line n="6">dream. I'll just have to find out where </line>
+                    <line n="7">the city's power source is.<cor resp="p1"><denied>But I've got to
+                                go</denied></cor></line>
+                    <line n="8">
+                        <cor resp="p1">
+                            <denied>outside (again).</denied>
+                        </cor>
+                    </line>
+                </paragraph>
+
+                <paragraph n="2">
+                    <line n="9">
+                        <space/>
+                        <cor resp="p1">
+                            <denied>It was a lot of easier to find</denied>
+                        </cor>
+                    </line>
+                    <line n="10"><cor resp="p1"><denied>than I thought it would be.</denied></cor>I
+                        got round </line>
+                    <line n="11">the corner and there was a BIG sign</line>
+                    <line n="12">saying CITY'S POWER SOURCE.</line>
+                    <line n="13">It's very oily and extremely big. Ah, this will</line>
+                    <line n="14">be the switch.<supplied>E<gap/></supplied></line>
+                </paragraph>
+
+
+                <paragraph n="3">
+                    <line n="15"><space/>Everything has gone dark</line>
+                    <line n="16">and I can't see where I'm going. I</line>
+                    <line n="17">keep on banging into long bars and</line>
+                    <line n="18">wires and knobs. Yess!! The door!!!</line>
+                </paragraph>
+
+                <paragraph n="4">
+                    <line n="19"><space/>There is uproar outside.</line>
+                    <line n="20"><supplied>get at</supplied>I sealed the door with stones on the </line>
+                    <line n="21">ground so no one could get in </line>
+                    <line n="22">to turn the switch back on.</line>
+                </paragraph>
+
+                <paragraph n="5">
+                    <line n="23"><space/>I've been thinking. If I'm</line>
+                    <line n="24">going to suck out all the pollution </line>
+                    <line n="25">I'm going to need help. Which is not</line>
+                    <line n="26">going <overwritten>to be
+                            easy.</overwritten><supplied><gap/>cafe</supplied></line>
+                </paragraph>
+
+                <paragraph n="6">
+                    <line n="27"><space/>Everyone keeps on staring</line>
+                    <line n="28">at me. It's very annoying. I hope people</line>
+                    <line n="29">
+                        <hi rend="light_black"> will help</hi>
+                    </line>
+                </paragraph>
+
+
+                <paragraph n="7">
+                    <hi rend="light_black">
+                        <line n="30"><space/>OK. I think this will work. I've</line>
+                        <line n="31">put up posters everywhere. They say...</line>
+                        <line n="32">MEETING BESIDE PHONE BOX </line>
+                        <line n="33">BE THERE AT 2pm. I hope they read </line>
+                        <line n="34">english. And english time.</line>
+                    </hi>
+                </paragraph>
+                <page number="3" position="mid"/>
+
+        </image>
+
+
+    </work>
+
+</story>
+
