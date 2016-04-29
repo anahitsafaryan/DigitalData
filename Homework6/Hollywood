@@ -1,0 +1,394 @@
+Last login: Wed Apr 27 14:57:20 on ttys000
+gs2-kps-pc249:~ anahitsafarzan$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 5.7.11 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use hollywood;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select released from movies where title='Jerry Maguire';
++------------+
+| released   |
++------------+
+| 2000-01-01 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select born from people where name='Kevin Bacon';
++------------+
+| born       |
++------------+
+| 1958-01-01 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select tagline from movies where title= 'The Matrix Reloaded’;
+    '> ;
+    '> ^C
+mysql> select tagline from movies where title='The Matrix Reloaded';
++----------------+
+| tagline        |
++----------------+
+| Free your mind |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select distinct title from movies join reviews on reviews.movie=movies.id;
++-------------------+
+| title             |
++-------------------+
+| Jerry Maguire     |
+| The Replacements  |
+| The Birdcage      |
+| Unforgiven        |
+| Cloud Atlas       |
+| The Da Vinci Code |
++-------------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> select role from roles where movie=(select id from movies where title='Unforgiven');
++---------------------+
+| role                |
++---------------------+
+| Little Bill Daggett |
+| English Bob         |
+| Bill Munny          |
++---------------------+
+3 rows in set (0.00 sec)
+
+mysql> select role from roles where movie=(select id from movies where title='Cloud Atlas');
++--------------------+
+| role               |
++--------------------+
+| Bill Smoke         |
+| Haskell Moore      |
+| Tadeusz Kesselring |
+| Nurse Noakes       |
+| Boardman Mephi     |
+| Old Georgie        |
+| Zachry             |
+| Dr. Henry Goose    |
+| Isaac Sachs        |
+| Dermot Hoggins     |
+| Luisa Rey          |
+| Jocasta Ayrs       |
+| Ovid               |
+| Meronym            |
+| Vyvyan Ayrs        |
+| Captain Molyneux   |
+| Timothy Cavendish  |
++--------------------+
+17 rows in set (0.00 sec)
+
+mysql> select count(distinct name) from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.title='Cloud Atlas';
++----------------------+
+| count(distinct name) |
++----------------------+
+|                    4 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> select name from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.released between '1994-12-31' and '1995-12-31';
++-------------------+
+| name              |
++-------------------+
+| Kiefer Sutherland |
+| Jerry O'Connell   |
+| River Phoenix     |
+| Corey Feldman     |
+| Wil Wheaton       |
+| John Cusack       |
+| Marshall Bell     |
+| Keanu Reeves      |
+| Takeshi Kitano    |
+| Dina Meyer        |
+| Ice-T             |
+| Kevin Bacon       |
+| Tom Hanks         |
+| Gary Sinise       |
+| Ed Harris         |
+| Bill Paxton       |
++-------------------+
+16 rows in set (0.00 sec)
+
+mysql> 
+mysql> select name from people where id=(select author from reviews where movie=(select id from movies where title='Jerry Maguire'));
++------------------+
+| name             |
++------------------+
+| Jessica Thompson |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select distinct name from people join produced on produced.producer=people.id join directed on directed.director=people.id;
++----------------+
+| name           |
++----------------+
+| Andy Wachowski |
+| Lana Wachowski |
+| Rob Reiner     |
+| Cameron Crowe  |
+| Nora Ephron    |
+| Nancy Meyers   |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> select people.born from people join roles on roles.actor=people.id join movies on roles.movie=movies.id where movies.released between '1994-12-31' and '2005-12-31';
++------------+
+| born       |
++------------+
+| 1964-01-01 |
+| 1967-01-01 |
+| 1961-01-01 |
+| 1960-01-01 |
+| 1978-01-01 |
+| 1964-01-01 |
+| 1967-01-01 |
+| 1961-01-01 |
+| 1960-01-01 |
+| 1964-01-01 |
+| 1967-01-01 |
+| 1961-01-01 |
+| 1960-01-01 |
+| 1964-01-01 |
+| 1975-01-01 |
+| 1940-01-01 |
+| 1962-01-01 |
+| 1968-01-01 |
+| 1969-01-01 |
+| 1962-01-01 |
+| 1974-01-01 |
+| 1970-01-01 |
+| 1961-01-01 |
+| 1971-01-01 |
+| 1990-01-01 |
+| 1966-01-01 |
+| 1974-01-01 |
+| 1970-01-01 |
+| 1971-01-01 |
+| 1972-01-01 |
+| 1966-01-01 |
+| 1942-01-01 |
+| 1937-01-01 |
+| 1968-01-01 |
+| 1963-01-01 |
+| 1963-01-01 |
+| 1968-01-01 |
+| 1960-01-01 |
+| 1929-01-01 |
+| 1942-01-01 |
+| 1951-01-01 |
+| 1929-01-01 |
+| 1970-01-01 |
+| 1971-01-01 |
+| 1940-01-01 |
+| 1961-01-01 |
+| 1963-01-01 |
+| 1968-01-01 |
+| 1973-01-01 |
+| 1967-01-01 |
+| 1956-01-01 |
+| 1961-01-01 |
+| 1948-01-01 |
+| 1956-01-01 |
+| 1949-01-01 |
+| 1975-01-01 |
+| 1956-01-01 |
+| 1977-01-01 |
+| 1964-01-01 |
+| 1970-01-01 |
+| 1930-01-01 |
+| 1968-01-01 |
+| 1951-01-01 |
+| 1956-01-01 |
+| 1930-01-01 |
+| 1964-01-01 |
+| 1947-01-01 |
+| 1968-01-01 |
+| 1958-01-01 |
+| 1961-01-01 |
+| 1940-01-01 |
+| 1956-01-01 |
+| 1957-01-01 |
+| 1953-01-01 |
+| 1968-01-01 |
+| 1955-01-01 |
+| 1959-01-01 |
+| 1958-01-01 |
+| 1956-01-01 |
+| 1955-01-01 |
+| 1950-01-01 |
+| 1955-01-01 |
+| 1963-01-01 |
+| 1954-01-01 |
+| 1955-01-01 |
+| 1967-01-01 |
+| 1963-01-01 |
+| 1956-01-01 |
+| 1951-01-01 |
+| 1960-01-01 |
+| 1956-01-01 |
+| 1956-01-01 |
+| 1956-01-01 |
+| 1956-01-01 |
+| 1956-01-01 |
+| 1956-01-01 |
++------------+
+96 rows in set (0.00 sec)
+
+mysql> select distinct name from people join roles on roles.movie=roles.movie where roles.actor=(select id from people where name='Keanu Reeves');
++------------------------+
+| name                   |
++------------------------+
+| Keanu Reeves           |
+| Carrie-Anne Moss       |
+| Laurence Fishburne     |
+| Hugo Weaving           |
+| Andy Wachowski         |
+| Lana Wachowski         |
+| Joel Silver            |
+| Emil Eifrem            |
+| Charlize Theron        |
+| Al Pacino              |
+| Taylor Hackford        |
+| Tom Cruise             |
+| Jack Nicholson         |
+| Demi Moore             |
+| Kevin Bacon            |
+| Kiefer Sutherland      |
+| Noah Wyle              |
+| Cuba Gooding Jr.       |
+| Kevin Pollak           |
+| J.T. Walsh             |
+| James Marshall         |
+| Christopher Guest      |
+| Rob Reiner             |
+| Aaron Sorkin           |
+| Kelly McGillis         |
+| Val Kilmer             |
+| Anthony Edwards        |
+| Tom Skerritt           |
+| Meg Ryan               |
+| Tony Scott             |
+| Jim Cash               |
+| Renee Zellweger        |
+| Kelly Preston          |
+| Jerry O'Connell        |
+| Jay Mohr               |
+| Bonnie Hunt            |
+| Regina King            |
+| Jonathan Lipnicki      |
+| Cameron Crowe          |
+| River Phoenix          |
+| Corey Feldman          |
+| Wil Wheaton            |
+| John Cusack            |
+| Marshall Bell          |
+| Helen Hunt             |
+| Greg Kinnear           |
+| James L. Brooks        |
+| Annabella Sciorra      |
+| Max von Sydow          |
+| Werner Herzog          |
+| Robin Williams         |
+| Vincent Ward           |
+| Ethan Hawke            |
+| Rick Yune              |
+| James Cromwell         |
+| Scott Hicks            |
+| Parker Posey           |
+| Dave Chappelle         |
+| Steve Zahn             |
+| Tom Hanks              |
+| Nora Ephron            |
+| Rita Wilson            |
+| Bill Pullman           |
+| Victor Garber          |
+| Rosie O'Donnell        |
+| John Patrick Stanley   |
+| Nathan Lane            |
+| Billy Crystal          |
+| Carrie Fisher          |
+| Bruno Kirby            |
+| Liv Tyler              |
+| Brooke Langton         |
+| Gene Hackman           |
+| Orlando Jones          |
+| Howard Deutch          |
+| Christian Bale         |
+| Zach Grenier           |
+| Mike Nichols           |
+| Richard Harris         |
+| Clint Eastwood         |
+| Takeshi Kitano         |
+| Dina Meyer             |
+| Ice-T                  |
+| Robert Longo           |
+| Halle Berry            |
+| Jim Broadbent          |
+| Tom Tykwer             |
+| David Mitchell         |
+| Stefan Arndt           |
+| Ian McKellen           |
+| Audrey Tautou          |
+| Paul Bettany           |
+| Ron Howard             |
+| Natalie Portman        |
+| Stephen Rea            |
+| John Hurt              |
+| Ben Miles              |
+| Emile Hirsch           |
+| John Goodman           |
+| Susan Sarandon         |
+| Matthew Fox            |
+| Christina Ricci        |
+| Rain                   |
+| Naomie Harris          |
+| Michael Clarke Duncan  |
+| David Morse            |
+| Sam Rockwell           |
+| Gary Sinise            |
+| Patricia Clarkson      |
+| Frank Darabont         |
+| Frank Langella         |
+| Michael Sheen          |
+| Oliver Platt           |
+| Danny DeVito           |
+| John C. Reilly         |
+| Ed Harris              |
+| Bill Paxton            |
+| Philip Seymour Hoffman |
+| Jan de Bont            |
+| Robert Zemeckis        |
+| Milos Forman           |
+| Diane Keaton           |
+| Nancy Meyers           |
+| Chris Columbus         |
+| Julia Roberts          |
+| Madonna                |
+| Geena Davis            |
+| Lori Petty             |
+| Penny Marshall         |
+| Paul Blythe            |
+| Angela Scope           |
+| Jessica Thompson       |
+| James Thompson         |
++------------------------+
+133 rows in set (0.00 sec)
+
+mysql> 
