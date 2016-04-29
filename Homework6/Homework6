@@ -1,96 +1,118 @@
 1.When was 'Jerry Maguire' released?
-sql+
+
+sql
 select released from movies where title='Jerry Maguire';
-neo4j +
+
+neo4j 
 match (m:Movie) where m.title='Jerry Maguire' return m.released
 
 
 
 2.When was Kevin Bacon born?
 
-sql+
+sql
 select born from people where name='Kevin Bacon';
 
-neo4j +
+neo4j 
 match (p:Person) where p.name='Kevin Bacon' return p.born
 
 
 
 3.What is the tagline of 'The Matrix Reloaded’?
-sql+
 
+sql
 select tagline from movies where title= 'The Matrix Reloaded’;
- neo4j +  
-match (m:Movie) where m.title='The Matrix Reloaded' return m.tagline     
+
+neo4j 
+match (m:Movie) where m.title='The Matrix Reloaded' return m.tagline
 
 
 
-4.Which movies have reviews? 
-sql+ 
-select distinct title from movies join reviews on reviews.movie=movies.id; 
-neo4j + 
-match ()-[r:REVIEWED]->(m:Movie) return m     
+4.Which movies have reviews?
+
+sql
+select distinct title from movies join reviews on reviews.movie=movies.id;
+
+neo4j 
+match ()-[r:REVIEWED]->(m:Movie) return m
 
 
-5.What roles were acted in 'Unforgiven’? 
-sql+
+
+5.What roles were acted in 'Unforgiven’?
+
+sql
 select role from roles where movie=(select id from movies where title='Unforgiven');
-neo4j +
+
+neo4j
 match ()-[a:ACTED_IN]-(m) where m.title ='Unforgiven' return a.roles
 
 
+
 6.What roles were acted in 'Cloud Atlas’?
-sql+
+
+sql
 select role from roles where movie=(select id from movies where title='Cloud Atlas');
 
-ne4j+
+ne4j
 match ()-[r:ACTED_IN]-(m) where m.title ='Cloud Atlas' unwind r.roles as parts RETURN  parts
 
 
+
 7.How many different people acted in 'Cloud Atlas’?
-sql+ 
-select count(distinct name) from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.title='Cloud Atlas'; 
- ne4j+
- match (a)-[r:ACTED_IN]->(m:Movie) where m.title='Cloud Atlas' return count (a)   
+
+sql
+select count(distinct name) from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.title='Cloud Atlas';
+
+ne4j
+match (a)-[r:ACTED_IN]->(m:Movie) where m.title='Cloud Atlas' return count (a)
 
 
-8.Who acted in movies released in 1995? 
-sql+ 
-select name from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.released between '1994-12-31' and '1995-12-31'; 
-neo4j+ 
-match (a)-[r:ACTED_IN]->(m:Movie) where m.released=1995 return a   
 
-9.Who reviewed 'Jerry Maguire’? 
-sql+
- select name from people where id=(select author from reviews where movie=(select id from movies where title='Jerry Maguire')); 
-neo4j+ 
-match (p)-[r:REVIEWED]->(m:Movie) where m.title='Jerry Maguire' return p   
+8.Who acted in movies released in 1995?
+
+sql
+select name from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.released between '1994-12-31' and '1995-12-31';
+
+neo4j
+match (a)-[r:ACTED_IN]->(m:Movie) where m.released=1995 return a
 
 
-10.Who has both produced and directed a movie? 
-sql+ 
-select distinct name from people join produced on produced.producer=people.id join directed on directed.director=people.id; 
- neo4j+
- match (p)-[:PRODUCED]->() match (p)-[:DIRECTED]->() return p     
+
+9.Who reviewed 'Jerry Maguire’?
+
+sql
+select name from people where id=(select author from reviews where movie=(select id from movies where title='Jerry Maguire'));
+
+neo4j
+match (p)-[r:REVIEWED]->(m:Movie) where m.title='Jerry Maguire' return p
 
 
-11.What are the birth years of actors in movies released between 1995 and 2005? 
-sql+
+
+10.Who has both produced and directed a movie?
+
+sql
+select distinct name from people join produced on produced.producer=people.id join directed on directed.director=people.id;
+
+neo4j
+match (p)-[:PRODUCED]->() match (p)-[:DIRECTED]->() return p
+
+
+
+11.What are the birth years of actors in movies released between 1995 and 2005?
+
+sql
 select people.born from people join roles on roles.actor=people.id join movies on roles.movie=movies.id where movies.released between '1994-12-31' and '2005-12-31';
- 
-neo4j+
 
+neo4j
 match (a)-[:ACTED_IN]->(m:Movie) where m.released>1994 and m.released<2006 return a.born
 
-Is it possible to write between in Neo4j?
 
 
 12.Who has acted in a movie with Keanu Reeves?
-sql+
+
+sql
 select distinct name from people join roles on roles.movie=roles.movie where roles.actor=(select id from people where name='Keanu Reeves');
 
-Is is right that Keanu Reeves is in the list too?
- 
-neo4j+
+neo4j
 match (a{name:'Keanu Reeves'})-[:ACTED_IN]->(m:Movie) match (p)-[:ACTED_IN]->(m) return p
 
