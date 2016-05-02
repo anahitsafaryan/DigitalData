@@ -34,7 +34,7 @@ sql
 select distinct title from movies join reviews on reviews.movie=movies.id;
 
 neo4j 
-match ()-[r:REVIEWED]->(m:Movie) return m
+match ()-[r:REVIEWED]->(m:Movie) return distinct m.title
 
 
 
@@ -74,7 +74,7 @@ sql
 select name from people join roles on roles.actor=people.id join movies on movies.id=roles.movie where movies.released between '1994-12-31' and '1995-12-31';
 
 neo4j
-match (a)-[r:ACTED_IN]->(m:Movie) where m.released=1995 return a
+match (a)-[r:ACTED_IN]->(m:Movie) where m.released=1995 return a.name
 
 
 
@@ -104,7 +104,7 @@ sql
 select people.born from people join roles on roles.actor=people.id join movies on roles.movie=movies.id where movies.released between '1994-12-31' and '2005-12-31';
 
 neo4j
-match (a)-[:ACTED_IN]->(m:Movie) where m.released>1994 and m.released<2006 return a.born
+match (a)-[:ACTED_IN]->(m:Movie) where m.released>1994 and m.released<2006 return distinct a.born
 
 
 
